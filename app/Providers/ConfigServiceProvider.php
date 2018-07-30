@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+
+use App\Config\Config;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class ConfigServiceProvider extends AbstractServiceProvider
@@ -13,7 +15,7 @@ class ConfigServiceProvider extends AbstractServiceProvider
     {
         $container = $this->getContainer();
         $container->share('config', function () {
-            //
+            $config = new Config();
         });
     }
 }
