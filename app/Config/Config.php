@@ -17,4 +17,25 @@ class Config
         }
         return $this;
     }
+
+    public function get($key, $default = null)
+    {
+        return $this->getConfigProp($this->config, explode('.', $key)) 
+            ?? $default;
+    }
+
+    protected function getConfigProp($config, $keys)
+    {
+        if (!is_array($config) || empty($keys)) {
+            return $config;
+        }
+
+        $key = array_shift($keys);
+
+        if (isset($config[$key])) {
+            return $this->getConfigProp($config[$key], $keys);
+        }
+        
+        return;
+    }
 }
