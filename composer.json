@@ -1,4 +1,6 @@
 {
     "name": "begimov/mvc-eframe-work",
-    "require": {}
+    "require": {
+        "league/route": "^3.1"
+    }
 }
