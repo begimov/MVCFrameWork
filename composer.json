@@ -1,5 +1,10 @@
 {
     "name": "begimov/mvc-eframe-work",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
     "require": {
         "league/route": "^3.1"
     }
