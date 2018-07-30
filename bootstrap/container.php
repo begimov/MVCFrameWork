@@ -11,3 +11,7 @@ $container->delegate(
 );
 
 $container->addServiceProvider(new ConfigServiceProvider());
+
+foreach ($container->get('config')->get('app.providers') as $provider) {
+    $container->addServiceProvider($provider);
+}
