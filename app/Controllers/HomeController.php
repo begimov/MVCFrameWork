@@ -16,7 +16,7 @@ class HomeController
 
     public function index($request, $response)
     {
-        $users = User::with('topics')->get();
+        $users = User::with('topics', 'topics.posts', 'topics.posts.user')->get();
 
         return $this->view->render($response, 'home.twig', compact('users'));
     }
