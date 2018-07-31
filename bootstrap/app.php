@@ -9,3 +9,5 @@ require_once 'container.php';
 $route = $container->get(League\Route\RouteCollection::class);
 
 require_once __DIR__ . '/../routes/web.php';
+
+var_dump($container->get('response'));
