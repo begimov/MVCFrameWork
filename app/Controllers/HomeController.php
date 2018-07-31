@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Views\View;
+use App\Models\User;
 
 class HomeController
 {
@@ -15,6 +16,8 @@ class HomeController
 
     public function index($request, $response)
     {
-        return $this->view->render($response, 'home.twig');
+        $users = User::all();
+        
+        return $this->view->render($response, 'home.twig', compact('users'));
     }
 }
