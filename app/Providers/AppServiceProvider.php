@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Zend\Diactoros\Response;
 use League\Route\RouteCollection;
+use Zend\Diactoros\ServerRequestFactory;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 
 class AppServiceProvider extends AbstractServiceProvider
@@ -22,5 +23,11 @@ class AppServiceProvider extends AbstractServiceProvider
         });
 
         $container->share('response', Response::class);
+
+        $container->share('request', function () {
+            return ServerRequestFactory::fromGlobals(
+                $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
+            );
+        });
     }
 }
