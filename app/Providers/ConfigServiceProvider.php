@@ -23,6 +23,7 @@ class ConfigServiceProvider extends AbstractServiceProvider
             $config->load([
                 new ArrayLoader([
                     'app' => __DIR__ . '../../../config/app.php',
+                    'db' => __DIR__ . '../../../config/db.php',
                 ])
             ]);
 
