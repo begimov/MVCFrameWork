@@ -10,4 +10,10 @@ $route = $container->get(League\Route\RouteCollection::class);
 
 require_once __DIR__ . '/../routes/web.php';
 
-var_dump($container->get('request'));
+try {
+    $response = $route->dispatch(
+        $container->get('request'), $container->get('response')
+    );
+} catch (\Exception $e) {
+    //
+}
